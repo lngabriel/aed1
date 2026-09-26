@@ -6,23 +6,19 @@ int main() {
 
     Dados d1 = {1, "mouse", 70.00};
     Dados d2 = {2, "teclado", 90.00};
-    Dados d3 = {3, "fone", 50.00};
-    Dados d4 = {4, "monitor", 120.00};
+    
+    Head *lista2 = criaLista();
+    Dados x1 = {8, "teclado", 90.00};
+    Dados x2 = {4, "pendrive", 20.00};
 
     criaLista();
 
     inserirFinal(lista, d1);
     inserirFinal(lista, d2);
-    inserirFinal(lista, d3);
-    inserirFinal(lista, d4);
+    inserirFinal(lista2, x1);
+    inserirFinal(lista2, x2);
 
-    imprimirLista(lista);
-
-    printf("\n");
-
-    printf("LISTA INVERTIDA:\n\n");
-
-    inverter_lista(lista);
+    intercalar(lista, lista2);
 
     imprimirLista(lista);
     

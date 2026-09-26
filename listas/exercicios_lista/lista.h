@@ -29,5 +29,7 @@ int contagem_nodos(Head *lista);
 int qtd_maior(Head *lista, int v);
 void remover_por_cod(Head *lista, int cod);
 void inverter_lista(Head *lista);
+void inverter_primeiros_n(Head *lista, int n);
+void intercalar(Head *lista1, Head *lista2);
 
 #endif

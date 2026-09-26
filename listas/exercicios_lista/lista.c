@@ -228,3 +228,62 @@ void inverter_lista(Head *lista) {
 
     lista->pFirst = anterior;
 }
+
+void inverter_primeiros_n(Head *lista, int n) {
+    Nodo *anterior = NULL;
+    Nodo *atual = lista->pFirst;
+    Nodo *proximo = NULL;
+
+    // contador de nos ja invertidos
+    int i = 0;
+    
+    if (n < 0 || n > contagem_nodos(lista)) {
+        printf("numero invalido.\n");
+        return;
+    }
+
+    while (atual != NULL &&  i < n) {
+        // guarda o proximo no para nao perder
+        proximo = atual->prox;
+
+        // inverter a ligacao do no atual
+        atual->prox = anterior;
+
+        // avanca anterior para o no atual
+        anterior = atual;   
+
+        // avanca atual para o proximo no original
+        atual = proximo;
+        i++;
+    }
+
+    lista->pFirst->prox = atual;
+    lista->pFirst = anterior;
+}
+
+void intercalar(Head *lista1, Head *lista2) {
+    Nodo *atual_l1 = lista1->pFirst;
+    Nodo *atual_l2 = lista2->pFirst;
+    Nodo *prox_l1, *prox_l2;
+
+    if (atual_l1 == NULL) {
+        lista1->pFirst = atual_l2;
+        lista2->pFirst = NULL;
+        return;
+    }
+
+    while (atual_l1 != NULL && atual_l2 != NULL) {
+        prox_l1 = atual_l1->prox;
+        prox_l2 = atual_l2->prox;
+
+        atual_l1->prox = atual_l2;
+
+        if (prox_l1 != NULL)
+            atual_l2->prox = prox_l1;
+
+        atual_l1 = prox_l1;
+        atual_l2 = prox_l2;
+    }
+
+    lista2->pFirst = NULL;
+}
