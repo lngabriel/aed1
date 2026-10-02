@@ -31,5 +31,7 @@ void remover_por_cod(Head *lista, int cod);
 void inverter_lista(Head *lista);
 void inverter_primeiros_n(Head *lista, int n);
 void intercalar(Head *lista1, Head *lista2);
+void impar_par(Head *lista, Head *pares, Head *impares);
+void copia(Head *lista, Head *destino);
 
 #endif

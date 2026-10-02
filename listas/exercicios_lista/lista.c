@@ -287,3 +287,25 @@ void intercalar(Head *lista1, Head *lista2) {
 
     lista2->pFirst = NULL;
 }
+
+void impar_par(Head *lista, Head *pares, Head *impares) {
+    Nodo *atual = lista->pFirst;
+    int pos = 1;
+    while (atual != NULL) {
+        if (pos % 2 == 0) {
+            inserirFinal(pares, atual->info);
+        } else {
+            inserirFinal(impares, atual->info);
+        }
+        atual = atual->prox;
+        pos++;
+    }
+}
+
+void copia(Head *lista, Head *destino) {
+    Nodo *atual = lista->pFirst;
+    while (atual != NULL) {
+        inserirFinal(destino, atual->info);
+        atual = atual->prox;
+    }
+}
