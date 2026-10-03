@@ -309,3 +309,24 @@ void copia(Head *lista, Head *destino) {
         atual = atual->prox;
     }
 }
+
+void remover_pares(Head *lista) {
+    Nodo *atual = lista->pFirst;
+    Nodo *anterior = NULL;
+    Nodo *remover = NULL;
+    while (atual != NULL) {
+        if (atual->info.cod % 2 == 0) {
+            remover = atual;
+            if (anterior == NULL) {
+                lista->pFirst = atual->prox;
+            } else {
+                anterior->prox = atual->prox;
+            }
+            atual = atual->prox;
+            free(remover);
+        } else {
+            anterior = atual;
+            atual = atual->prox;
+        }
+    }
+}

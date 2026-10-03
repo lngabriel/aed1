@@ -3,11 +3,10 @@
 
 int main() {
     Head *lista = criaLista();
-    Head *destino = criaLista();
-    Dados d1 = {1, "mouse", 70.00};
-    Dados d2 = {2, "teclado", 90.00};
+    Dados d1 = {3, "mouse", 70.00};
+    Dados d2 = {4, "teclado", 90.00};
     inserirFinal(lista, d1);
     inserirFinal(lista, d2);
-    copia(lista, destino);
+    remover_pares(lista);
     imprimirLista(lista);
 }
